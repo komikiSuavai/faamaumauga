@@ -1,27 +1,2 @@
-name: Build and deploy frontend to gh-pages
-on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: Install dependencies (root)
-        run: npm ci
-      - name: Build Vite app (frontend folder)
-        run: |
-          cd frontend
-          npx vite build
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/dist
+# Disabled duplicate workflow — the canonical workflow remains at .github/workflows/ci-deploy.yml
+# This file was disabled to avoid duplicate Actions runs.
